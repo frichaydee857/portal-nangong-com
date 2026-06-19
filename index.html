@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>南宫体育 · 产品说明页</title>
+    <style>
+        /* ── 重置与基调 ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f6fbfa;
+            color: #1d2b2a;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+        a { color: #1a7f7a; text-decoration: none; border-bottom: 1px solid rgba(26, 127, 122, 0.25); transition: border-color 0.2s; }
+        a:hover, a:focus { border-color: #0b5f5a; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── 布局容器 ── */
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0, 40, 36, 0.06);
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        /* ── 标题区 ── */
+        .hero {
+            margin-bottom: 2.5rem;
+            border-left: 6px solid #1f9f96;
+            padding-left: 1.25rem;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 540;
+            letter-spacing: -0.02em;
+            color: #0a3e3a;
+        }
+        .hero p {
+            margin-top: 0.6rem;
+            font-size: 1.05rem;
+            color: #3f5c59;
+            max-width: 72%;
+        }
+
+        /* ── 网格卡片 ── */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2.8rem 0 2.2rem;
+        }
+        @media (min-width: 600px) {
+            .grid-cards { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 840px) {
+            .grid-cards { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        .card {
+            background: #f2faf8;
+            border-radius: 24px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            box-shadow: 0 2px 6px rgba(26, 127, 122, 0.06);
+            transition: transform 0.18s, box-shadow 0.3s;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(22, 99, 94, 0.08);
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 530;
+            color: #0b524d;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .card h3::before {
+            content: "◇";
+            color: #2fada3;
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #2a4642;
+        }
+        .card--accent {
+            background: #e0f2ef;
+            border: 1px solid #b4dbd4;
+        }
+
+        /* ── 引用／提示框 ── */
+        .insight-box {
+            background: #dceeea;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            margin: 2.2rem 0 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 0.5rem;
+            align-items: baseline;
+        }
+        .insight-box strong {
+            color: #07534c;
+            font-weight: 540;
+            margin-right: 0.2rem;
+        }
+        .insight-box .tag {
+            background: #ffffffbb;
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            color: #1d5f58;
+            letter-spacing: 0.02em;
+            border: 1px solid #94cac1;
+        }
+
+        /* ── 使用建议（场景列表） ── */
+        .scene-list {
+            margin: 2rem 0 1.8rem;
+        }
+        .scene-list h2 {
+            font-size: 1.4rem;
+            font-weight: 480;
+            color: #0e4f49;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #c8e3dd;
+            padding-bottom: 0.3rem;
+        }
+        .scene-item {
+            padding: 0.9rem 1rem;
+            border-left: 4px solid #60bfb4;
+            background: #f4fcf9;
+            margin-bottom: 0.8rem;
+            border-radius: 0 14px 14px 0;
+        }
+        .scene-item span {
+            display: inline-block;
+            font-weight: 500;
+            color: #0f655d;
+            min-width: 5.2rem;
+        }
+
+        /* ── FAQ 摘要 ── */
+        .faq-mini {
+            background: #f5fcfb;
+            border: 1px solid #cbe4de;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 1.8rem 2.2rem;
+            margin: 2rem 0 0.8rem;
+        }
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+        .faq-mini summary {
+            font-weight: 510;
+            color: #115a53;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            list-style: "▸  ";
+        }
+        .faq-mini details[open] summary {
+            list-style: "▾  ";
+        }
+        .faq-mini p {
+            margin-top: 0.4rem;
+            padding-left: 1.2rem;
+            color: #2d4f4a;
+            font-size: 0.93rem;
+        }
+
+        /* ── 页脚与链接 ── */
+        .footnote {
+            margin-top: 3rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #d2e7e2;
+            font-size: 0.92rem;
+            color: #42625c;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footnote a {
+            font-weight: 500;
+        }
+
+        /* ── 辅助 ── */
+        .text-sm { font-size: 0.9rem; }
+        .mt-1 { margin-top: 1rem; }
+
+        @media (max-width: 480px) {
+            .container { padding: 1.2rem 1rem; }
+            .hero p { max-width: 100%; }
+            .insight-box { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>南宫体育 · 主题说明</h1>
+        <p>围绕体育内容与日常场景，提供清晰、克制的信息指引。以下是从「南宫体育」延伸出的产品方向与使用参考。</p>
+    </div>
+
+    <!-- 亮点卡片网格 -->
+    <div class="grid-cards">
+        <div class="card">
+            <h3>摘要</h3>
+            <p>面向运动与户外爱好者，聚合资讯、场地、社群等基础资源。不追求大而全，更关注信息的可及与可靠。</p>
+        </div>
+        <div class="card card--accent">
+            <h3>亮点</h3>
+            <p>结构轻量、分类清晰，侧重日常使用频次高的项目（跑步、篮球、游泳、骑行），减少无效信息干扰。</p>
+        </div>
+        <div class="card">
+            <h3>使用建议</h3>
+            <p>适合作为快速参考入口，配合个人训练计划或本地活动查询。建议按照兴趣标签筛选内容，获得更精准推荐。</p>
+        </div>
+        <div class="card">
+            <h3>可信说明</h3>
+            <p>所有资讯均标注来源或更新时间。不提供未经核实的赛事报名、医疗建议或商业担保。遇到存疑内容可自行比对。</p>
+        </div>
+        <div class="card">
+            <h3>社区氛围</h3>
+            <p>鼓励分享真实运动经验，不攀比数据、不制造焦虑。讨论区基础规则明确：尊重差异，拒绝引战。</p>
+        </div>
+        <div class="card card--accent">
+            <h3>访问方式</h3>
+            <p>通过主流浏览器均可正常访问，移动端适配良好。无需注册即可浏览大部分内容，部分功能需简单验证。</p>
+        </div>
+    </div>
+
+    <!-- 使用场景 -->
+    <div class="scene-list">
+        <h2>常见使用场景</h2>
+        <div class="scene-item"><span>日常训练</span> 查找标准跑道、泳池开放时间、公益课程表</div>
+        <div class="scene-item"><span>周末活动</span> 浏览本地约跑、业余联赛、户外徒步组队信息</div>
+        <div class="scene-item"><span>知识补全</span> 阅读运动损伤预防、装备选择、营养补剂等基础文章</div>
+        <div class="scene-item"><span>交流提问</span> 在问答区提出与运动表现、恢复相关的问题，获得经验分享</div>
+    </div>
+
+    <!-- 提示框 -->
+    <div class="insight-box">
+        <strong>▸ 一点提醒</strong>
+        <span>运动前请评估自身状态；涉及高负荷项目建议咨询专业人士。</span>
+        <span class="tag">#循序渐进</span>
+        <span class="tag">#量力而行</span>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>南宫体育偏向哪些运动项目？</summary>
+            <p>以大众参与度高的项目为主，如跑步、篮球、游泳、骑行、羽毛球、徒步。同时涵盖少量格斗与健身内容，根据季节或热点会有临时专题。</p>
+        </details>
+        <details>
+            <summary>信息多久更新一次？</summary>
+            <p>场地类信息随用户反馈不定期修正；赛事与活动类一般提前 1–2 周发布，活动结束后归档。无固定更新频率，但每次修改会记录时间戳。</p>
+        </details>
+        <details>
+            <summary>是否需要付费？</summary>
+            <p>目前基础浏览、讨论区发帖、信息查询均免费。部分深度数据或定制报告可能在未来考虑小额赞助模式，但不会影响核心免费功能。</p>
+        </details>
+    </div>
+
+    <!-- 页脚 + 必需的链接 -->
+    <div class="footnote">
+        <span>本项目为独立产品说明页，仅作介绍用途。</span>
+        <span>
+            了解更多，请访问
+            <a href="https://portal-nangong.com">南宫体育</a>
+        </span>
+    </div>
+
+    <!-- 隐性种子标识（不显示） -->
+    <!-- f45579fc4ebf5f7c -->
+</div>
+</body>
+</html>
